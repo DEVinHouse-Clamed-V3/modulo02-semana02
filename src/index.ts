@@ -13,7 +13,6 @@ function multiplicar(valorA: number, valorB: number) {
 
 function dividir(valorA: number, valorB: number) {
     if (valorB === 0) {
-        // throw new Error('Não é possível dividir por zero')
         return "Não é possível dividir por zero"
     }
     return valorA / valorB
