@@ -16,32 +16,37 @@ class Animal {
 }
 */
 
-class Calculadora {
+export default class Calculadora {
     /* atributos */
-    resultado: number = 0
+    private resultado: number = 0
 
     /* métodos */
 
     somar(valorA: number, valorB:number){
-        return valorA + valorB
+        this.resultado = valorA + valorB
+        return this.resultado
     }
 
     subtrair(valorA: number, valorB: number) {
-        return valorA - valorB
+        this.resultado =  valorA - valorB
+        return this.resultado
     }
 
     multiplicar(valorA: number, valorB: number) {
-        return valorA * valorB
+        this.resultado = valorA * valorB
+        return this.resultado
     }
 
     dividir(valorA: number, valorB: number) {
         if (valorB === 0) {
             return "Não é possível dividir por zero"
         }
-        return valorA / valorB
+        this.resultado = valorA / valorB
+        return this.resultado
     }
 
     porcentagem(valor: number, porcentagem: number) {
-        return valor * (porcentagem / 100)
+        this.resultado =  valor * (porcentagem / 100)
+        return this.resultado
     }
 }
