@@ -8,6 +8,7 @@ export default class Pessoa {
     private genero: string = ''
     private especialidade: string = ''
     private isPcd: boolean = false
+    
 
     // contructor
     constructor(nome: string, cpf: string, idade: number, genero: string) {
@@ -31,6 +32,4 @@ export default class Pessoa {
     setGenero(genero: string) { this.genero = genero.toUpperCase() }
     setEspecialidade(especialidade: string) { this.especialidade = especialidade }
     setIsPcd(isPcd: boolean) { this.isPcd = isPcd }
-
-
 }
