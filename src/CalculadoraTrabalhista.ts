@@ -1,9 +1,7 @@
+import Calculadora from "./Calculadora";
 
-export default class CalculadoraTrabalhista {
+export default class CalculadoraTrabalhista extends Calculadora {
 
-    private resultado = 0;
-
-    
     calcularInss(salarioBruto: number) {
         let inss = 0
 
@@ -19,28 +17,34 @@ export default class CalculadoraTrabalhista {
 
         if (inss > 908.85) inss = 908.85
 
-        return inss
+        this.setResultado(inss)
+
+        return this.getResultado()
     }
 
     calcularImpostoDeRenda(renda: number): number {
-        if (renda <= 2112) return 0;
-        else if (renda <= 2826.65) return renda * 0.075;
-        else if (renda <= 3751.05) return renda * 0.15;
-        else if (renda <= 4664.68) return renda * 0.225;
-        else return renda * 0.275;
+        let imposto = 0
+        if (renda <= 2112) imposto = 0;
+        else if (renda <= 2826.65) imposto = renda * 0.075;
+        else if (renda <= 3751.05) imposto =  renda * 0.15;
+        else if (renda <= 4664.68) imposto = renda * 0.225;
+        else return imposto =  renda * 0.275;
+        this.setResultado(imposto)
+        return this.getResultado()
     };
 
     calcularSalarioLiquido(salarioBruto: number) {
         const descontoInss = this.calcularInss(salarioBruto)
         const descontoImpostoRenda = this.calcularImpostoDeRenda(salarioBruto)
-        return salarioBruto - descontoInss - descontoImpostoRenda
+        this.setResultado(salarioBruto - descontoInss - descontoImpostoRenda)
+        return this.getResultado()
     }
-
-    /*
+    
     calcularSalarioFerias(salarioMensal: number) {
         const PORCENTAGEM_BASE_CALCULO_FERIAS = 33
-        const tercoSalario = porcentagem(salarioMensal, PORCENTAGEM_BASE_CALCULO_FERIAS)
-        return salarioMensal + tercoSalario
+        const tercoSalario = this.porcentagem(salarioMensal, PORCENTAGEM_BASE_CALCULO_FERIAS)
+        this.setResultado( salarioMensal + tercoSalario)
+        return this.getResultado()
     }
-    */    
+    
 }

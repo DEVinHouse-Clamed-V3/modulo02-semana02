@@ -18,9 +18,17 @@ class Animal {
 
 export default class Calculadora {
     /* atributos */
+    // public resultado: number = 0 -> acessado de qualquer lugar
     private resultado: number = 0
-
+    
     /* métodos */
+    getResultado(){
+        return this.resultado
+    }
+
+    protected setResultado(valor: number){
+         this.resultado = valor
+    }
 
     somar(valorA: number, valorB:number){
         this.resultado = valorA + valorB
